@@ -1,0 +1,27 @@
+{
+	"name": "laraveleg/laravel-user-wallet",
+	"type": "library",
+	"description": "Create a cash wallet for the user that can deposit and withdraw",
+	"keywords": ["php", "laravel", "user", "wallet"],
+	"homepage": "https://laraveleg.github.io/laravel-user-wallet/",
+	"authors": [
+		{
+			"name": "Kareem Moahemd",
+			"email": "komicho1996@gmail.com",
+			"homepage": "https://github.com/alpharooq",
+			"role": "Developer"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"LaravelEG\\UserWallet\\": "/src"
+		}
+	},
+	"extra": {
+        "laravel": {
+            "providers": [
+                "LaravelEG\\UserWallet\\UserWalletServiceProvider"
+            ]
+        }
+    }
+}
