@@ -1,6 +1,10 @@
 # laraveleg/laravel-user-wallet
 Create a cash wallet for the user that can deposit and withdraw.
 
+## Requirements
+- php ^7.0
+- laravel/framework ^7.0 || ^8.0
+
 ## Install via composer
 Add orm to composer.json configuration file.
 

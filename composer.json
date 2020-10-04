@@ -17,6 +17,10 @@
 			"LaravelEG\\UserWallet\\": "/src"
 		}
 	},
+	"require": {
+        "php": "^7.0",
+        "laravel/framework": "^7.0 || ^8.0"
+    },
 	"extra": {
         "laravel": {
             "providers": [
