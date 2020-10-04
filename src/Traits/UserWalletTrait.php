@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Auth;
 trait UserWalletTrait
 {
 
+    /**
+     * Fetch user balance.
+     *
+     * @return balance
+     */
     public function getBalanceAttribute()
     {
         $totalAllDeposit = $this->walletRecords()->where('operation', '=', 'deposit')->sum('amount');
@@ -20,6 +25,11 @@ trait UserWalletTrait
         return $total;
     }
 
+    /**
+     * To deposit into a user's wallet.
+     *
+     * @return void
+     */
     public function depositBalance($amount, $details = NULL)
     {
         UserWallet::create([
@@ -30,6 +40,11 @@ trait UserWalletTrait
         ]);
     }
 
+    /**
+     * For withdrawal from the user's wallet.
+     *
+     * @return void
+     */
     public function withdrawalBalance($amount, $details = NULL)
     {
         UserWallet::create([
@@ -40,6 +55,11 @@ trait UserWalletTrait
         ]);
     }
 
+    /**
+     * Fetch user wallet records.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function walletRecords()
     {
         return $this->hasMany(UserWallet::class, 'user_id', 'id');
