@@ -8,6 +8,11 @@ Add orm to composer.json configuration file.
 $ composer require laraveleg/laravel-user-wallet
 ```
 
+## Migrate
+```bash
+$ php artisan migrate
+```
+
 ## add the trait in your model User in `app/Models/User.php` file
 ```php
 use LaravelEG\UserWallet\Traits\UserWalletTrait;
