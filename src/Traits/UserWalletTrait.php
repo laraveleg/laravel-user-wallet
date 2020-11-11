@@ -3,6 +3,8 @@
 namespace LaravelEG\UserWallet\Traits;
 
 use LaravelEG\UserWallet\App\Models\UserWallet as UserWallet;
+use LaravelEG\UserWallet\App\Events\DepositBalanceEvent;
+use LaravelEG\UserWallet\App\Events\withdrawalBalanceEvent;
 
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Auth;
@@ -32,12 +34,14 @@ trait UserWalletTrait
      */
     public function depositBalance($amount, $details = NULL)
     {
-        UserWallet::create([
+        $record = UserWallet::create([
             'user_id' => $this->id,
             'details' => $details,
             'amount' => $amount,
             'operation' => 'deposit'
         ]);
+
+        event(new DepositBalanceEvent($this, $record));
     }
 
     /**
@@ -47,12 +51,14 @@ trait UserWalletTrait
      */
     public function withdrawalBalance($amount, $details = NULL)
     {
-        UserWallet::create([
+        $record = UserWallet::create([
             'user_id' => $this->id,
             'details' => $details,
             'amount' => $amount,
             'operation' => 'withdrawal'
         ]);
+
+        event(new withdrawalBalanceEvent($this, $record));
     }
 
     /**

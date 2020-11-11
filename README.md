@@ -33,14 +33,14 @@ class User extends Authenticatable
 To deposit into a user's wallet.
 
 ```php
-Auth::user()->depositBalance(100);
+Auth::user()->depositBalance(100, '<details>');
 ```
 
 ### withdrawalBalance
 For withdrawal from the user's wallet.
 
 ```php
-Auth::user()->withdrawalBalance(50);
+Auth::user()->withdrawalBalance(50, '<details>');
 ```
 
 ## Attributes
@@ -50,5 +50,14 @@ Fetch user balance.
 ```php
 Auth::user()->balance;
 ```
+
+## Listeners
+### Publish vendor
+- Run `php artisan vendor:publish`
+- Selection `LaravelEG\UserWallet\UserWalletServiceProvider`
+
+### Config file
+Go to `config/laraveleg/userwallet.php`
+- You can set listeners classes if when `depositing` and `withdrawal`
 
 THX.
